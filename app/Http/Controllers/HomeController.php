@@ -103,7 +103,7 @@ class HomeController extends Controller
                 ],
             ],
             'addressLine' => '4th floor, AE-69-A, Askay-Akien Elevens Bldg., Western Buyagan, La Trinidad, Philippines, 2601',
-            'footerLine' => 'Altair Studio • Crafted with Laravel',
+            'footerLine' => '© 2026 Altair Studio. All rights reserved.',
         ]);
     }
 }
