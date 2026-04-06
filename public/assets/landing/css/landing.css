@@ -3,7 +3,7 @@
             --muted: #607287;
             --aqua: #30a7e0;
             --teal: #16a085;
-            --brand-image-url: url("/images/background.JPG");
+            --brand-image-url: url("/images/background3.JPG");
             --mist: #dde6ec;
             --paper: #f6f8fb;
             --card: #ffffff;
@@ -428,23 +428,20 @@
             border-bottom: 1px solid rgba(147, 166, 182, 0.3);
         }
 
-        .classes::before {
+        .classes:first-of-type {
+            background: linear-gradient(135deg, #f0f7fc 0%, #e8f2f9 50%, #f0f7fc 100%);
+        }
+
+        .classes:first-of-type::before {
             content: "";
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 12% 18%, rgba(41, 161, 219, 0.16), rgba(41, 161, 219, 0) 33%),
-                radial-gradient(circle at 88% 78%, rgba(22, 160, 133, 0.14), rgba(22, 160, 133, 0) 32%);
-            opacity: 0.42;
-            transform: translateY(18px);
-            transition: transform 0.95s ease, opacity 0.95s ease;
+                radial-gradient(circle at 12% 18%, rgba(41, 161, 219, 0.2), rgba(41, 161, 219, 0) 33%),
+                radial-gradient(circle at 88% 78%, rgba(22, 160, 133, 0.18), rgba(22, 160, 133, 0) 32%);
+            opacity: 0.6;
             pointer-events: none;
             z-index: 0;
-        }
-
-        .classes.is-inview::before {
-            opacity: 0.66;
-            transform: translateY(0);
         }
 
         .schedule-grid {
@@ -601,6 +598,58 @@
 
         .coach:hover {
             --lift: -8px;
+        }
+
+        .classes:first-of-type .coach {
+            background: #ffffff;
+            border: 2px solid transparent;
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 24px rgba(41, 161, 219, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .classes:first-of-type .coach::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: linear-gradient(90deg, #30a7e0, #16a085, #30a7e0);
+            background-size: 200% 100%;
+            animation: shimmer-line 2s ease-in-out infinite;
+            border-radius: 2px;
+        }
+
+        .classes:first-of-type .coach:hover {
+            --lift: -10px;
+            border-color: rgba(48, 167, 224, 0.2);
+            box-shadow: 0 16px 40px rgba(41, 161, 219, 0.2);
+        }
+
+        .classes:first-of-type .coach h3 {
+            color: #16a085;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+        }
+
+        .classes:first-of-type .coach p {
+            color: #607287;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        @keyframes shimmer-line {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
         }
 
         .coach-photo {

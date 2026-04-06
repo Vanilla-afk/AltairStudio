@@ -56,35 +56,26 @@
             <div class="container">
                 <div class="section-header reveal" data-delay="0.05">
                     <div>
-                        <h2>Schedule for {{ $scheduleMonth ?? 'March' }}</h2>
+                        <h2>What We Offer</h2>
                         <p>
-                            {{ $scheduleNotice ?? 'Please book your classes a day ahead.' }}
+                            Experience our diverse range of classes: Aerial Yoga, Aerial Foundation, Aerial Power, Hatha
+                            Yoga, Vinyasa, and Reformer Pilates—designed for every level.
                         </p>
                     </div>
                 </div>
 
-                <div class="schedule-grid scroll-stage schedule-stage">
-                    @foreach ($weeklySchedule ?? [] as $daySchedule)
-                        <article class="schedule-day scroll-item" style="--stagger: {{ $loop->index }};">
-                            <h3>{{ $daySchedule['day'] }}</h3>
-                            <div class="slot-list">
-                                @foreach ($daySchedule['slots'] ?? [] as $slot)
-                                    <div class="slot-row">
-                                        <div class="slot-time">{{ $slot['time'] }}</div>
-                                        <div class="slot-class">
-                                            {{ $slot['class'] }}
-                                            @if (!empty($slot['isNew']))
-                                                <span class="slot-badge">New</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
+                <div class="coach-grid scroll-stage coach-stage">
+                    @foreach ($classesOffered ?? [] as $class)
+                        <article class="coach scroll-item" style="--stagger: {{ $loop->index }};">
+                            <h3>{{ $class['name'] }}</h3>
+                            <p>{{ $class['description'] }}</p>
                         </article>
                     @endforeach
                 </div>
             </div>
         </section>
+
+
 
         <section class="instructors" id="instructors">
             <div class="container">
@@ -120,9 +111,9 @@
             <div class="container">
                 <div class="section-header reveal" data-delay="0.05">
                     <div>
-                        <h2>Yoga Moments</h2>
+                        <h2>Studio Moments</h2>
                         <p>
-                            A glimpse of our shared practice through real moments captured in class.
+                            A glimpse of our shared practice through real moments captured in yoga and pilates classes.
                         </p>
                     </div>
                 </div>
