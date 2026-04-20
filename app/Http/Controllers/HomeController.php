@@ -47,19 +47,19 @@ class HomeController extends Controller
             ],
             'instructors' => [
                 [
-                    'name' => 'Elara Moon',
+                    'name' => 'Arvin Pogi',
                     'role' => 'Studio Director & Lead Instructor',
                     'bio' => 'With over 15 years of experience, Elara specializes in Vinyasa and Power yoga.',
                     'tags' => ['Vinyasa Flow', 'Power Yoga', 'Pranayama'],
                 ],
                 [
-                    'name' => 'Kai Rivers',
+                    'name' => 'Arvin Pogi',
                     'role' => 'Senior Hatha Instructor',
                     'bio' => 'Kai brings a calm, grounded approach with a focus on alignment and accessibility.',
                     'tags' => ['Hatha Yoga', 'Yoga for Athletes', 'Alignment'],
                 ],
                 [
-                    'name' => 'Seraphina Sun',
+                    'name' => 'Arvin Pogi',
                     'role' => 'Meditation & Yin Expert',
                     'bio' => 'Seraphina specializes in mindful classes designed for deep release and relaxation.',
                     'tags' => ['Yin Yoga', 'Restorative', 'Mindfulness'],
@@ -103,7 +103,7 @@ class HomeController extends Controller
                 ],
             ],
             'addressLine' => '4th floor, AE-69-A, Askay-Akien Elevens Bldg., Western Buyagan, La Trinidad, Philippines, 2601',
-            'footerLine' => 'Altair Studio • Crafted with Laravel',
+            'footerLine' => '© 2026 Altair Studio. All rights reserved.',
         ]);
     }
 }

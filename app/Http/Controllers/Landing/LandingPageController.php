@@ -13,7 +13,7 @@ class LandingPageController extends Controller
             'brandName' => 'Altair Studio',
             'heroTitleStart' => 'Embrace Your Journey at',
             'heroTitleAccent' => 'Altair Studio',
-            'heroDescription' => 'Discover a stellar sanctuary for your mind, body, and soul in the heart of La Trinidad. Reach for the stars with our premium wellness experiences.',
+            'heroDescription' => 'Discover a stellar sanctuary for your mind, body, and soul in the heart of La Trinidad. Experience premium yoga, pilates, and wellness to reach for the stars.',
             'heroPrimaryCta' => 'Explore Classes',
             'heroSecondaryCta' => 'Meet Instructors',
             'bookTrialCta' => 'Book Trial',
@@ -24,6 +24,32 @@ class LandingPageController extends Controller
             ],
             'scheduleMonth' => 'March',
             'scheduleNotice' => 'Please book your classes a day ahead.',
+            'classesOffered' => [
+                [
+                    'name' => 'Aerial Yoga',
+                    'description' => 'Float and find balance. Our Aerial Yoga classes combine traditional yoga poses with suspended support, building strength and flexibility.',
+                ],
+                [
+                    'name' => 'Aerial Foundation',
+                    'description' => 'Perfect for those new to aerial practice. Learn the fundamentals and build confidence with our certified instructors.',
+                ],
+                [
+                    'name' => 'Aerial Power',
+                    'description' => 'Take your aerial practice to the next level. Build advanced strength and master challenging techniques.',
+                ],
+                [
+                    'name' => 'Hatha Yoga',
+                    'description' => 'A grounded approach to yoga focusing on alignment and breath. Ideal for building a strong foundation.',
+                ],
+                [
+                    'name' => 'Vinyasa',
+                    'description' => 'Dynamic and energizing. Vinyasa flows synchronize breath with movement for a full-body workout.',
+                ],
+                [
+                    'name' => 'Reformer Pilates',
+                    'description' => 'Sculpt and strengthen with precision. Our Reformer Pilates sessions enhance posture, core stability, and total-body conditioning.',
+                ],
+            ],
             'weeklySchedule' => [
                 [
                     'day' => 'Monday',
@@ -133,7 +159,7 @@ class LandingPageController extends Controller
                 ],
             ],
             'addressLine' => '4th floor, AE-69-A, Askay-Akien Elevens Bldg., Western Buyagan, La Trinidad, Philippines, 2601',
-            'footerLine' => 'Altair Studio • Crafted with Laravel',
+            'footerLine' => '© 2026 Altair Studio. All rights reserved.',
         ]);
     }
 }

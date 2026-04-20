@@ -3,7 +3,7 @@
             --muted: #607287;
             --aqua: #30a7e0;
             --teal: #16a085;
-            --brand-image-url: url("/images/background.JPG");
+            --brand-image-url: url("/images/background3.JPG");
             --mist: #dde6ec;
             --paper: #f6f8fb;
             --card: #ffffff;
@@ -88,6 +88,18 @@
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             transition: background 0.28s ease, border-color 0.28s ease;
+        }
+
+        .site-header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: calc(var(--scroll-progress, 0) * 1%);
+            background: linear-gradient(90deg, #30a7e0, #16a085);
+            box-shadow: 0 0 16px rgba(48, 167, 224, 0.45);
+            transition: width 0.12s linear;
         }
 
         .site-header .container {
@@ -177,6 +189,15 @@
         }
 
         .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a.is-current {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .nav-links a.is-current::after {
             transform: scaleX(1);
         }
 
@@ -313,25 +334,28 @@
             position: relative;
             overflow: hidden;
             background: #30a7e0;
-
-            .book-btn::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 38%;
-                left: -45%;
-                background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
-                transform: skewX(-20deg);
-                transition: left 0.55s ease;
-            }
-
             border-color: #30a7e0;
             color: #fff;
         }
 
 
-        .book-btn:hover::after {
+        .book-btn::after,
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 38%;
+            left: -45%;
+            background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+            transform: skewX(-20deg);
+            transition: left 0.55s ease;
+            pointer-events: none;
+        }
+
+
+        .book-btn:hover::after,
+        .btn-primary:hover::after {
             left: 122%;
         }
 
@@ -404,23 +428,20 @@
             border-bottom: 1px solid rgba(147, 166, 182, 0.3);
         }
 
-        .classes::before {
+        .classes:first-of-type {
+            background: linear-gradient(135deg, #f0f7fc 0%, #e8f2f9 50%, #f0f7fc 100%);
+        }
+
+        .classes:first-of-type::before {
             content: "";
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 12% 18%, rgba(41, 161, 219, 0.16), rgba(41, 161, 219, 0) 33%),
-                radial-gradient(circle at 88% 78%, rgba(22, 160, 133, 0.14), rgba(22, 160, 133, 0) 32%);
-            opacity: 0.42;
-            transform: translateY(18px);
-            transition: transform 0.95s ease, opacity 0.95s ease;
+                radial-gradient(circle at 12% 18%, rgba(41, 161, 219, 0.2), rgba(41, 161, 219, 0) 33%),
+                radial-gradient(circle at 88% 78%, rgba(22, 160, 133, 0.18), rgba(22, 160, 133, 0) 32%);
+            opacity: 0.6;
             pointer-events: none;
             z-index: 0;
-        }
-
-        .classes.is-inview::before {
-            opacity: 0.66;
-            transform: translateY(0);
         }
 
         .schedule-grid {
@@ -438,6 +459,9 @@
             transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
             position: relative;
             isolation: isolate;
+            transform: translateY(var(--lift, 0)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .schedule-day::before {
@@ -456,7 +480,7 @@
         }
 
         .schedule-day:hover {
-            transform: translateY(-8px);
+            --lift: -8px;
             box-shadow: 0 28px 48px rgba(15, 31, 45, 0.18);
             border-color: #bcd0e2;
         }
@@ -567,10 +591,65 @@
         .coach {
             text-align: center;
             transition: transform 0.28s ease;
+            transform: translateY(var(--lift, 0)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .coach:hover {
-            transform: translateY(-8px);
+            --lift: -8px;
+        }
+
+        .classes:first-of-type .coach {
+            background: #ffffff;
+            border: 2px solid transparent;
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 24px rgba(41, 161, 219, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .classes:first-of-type .coach::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: linear-gradient(90deg, #30a7e0, #16a085, #30a7e0);
+            background-size: 200% 100%;
+            animation: shimmer-line 2s ease-in-out infinite;
+            border-radius: 2px;
+        }
+
+        .classes:first-of-type .coach:hover {
+            --lift: -10px;
+            border-color: rgba(48, 167, 224, 0.2);
+            box-shadow: 0 16px 40px rgba(41, 161, 219, 0.2);
+        }
+
+        .classes:first-of-type .coach h3 {
+            color: #16a085;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+        }
+
+        .classes:first-of-type .coach p {
+            color: #607287;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        @keyframes shimmer-line {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
         }
 
         .coach-photo {
@@ -714,6 +793,15 @@
             border: 1px solid #c3d4e2;
             box-shadow: 0 14px 28px rgba(15, 31, 45, 0.14);
             background: #dce8f1;
+            transition: transform 0.25s ease;
+            transform: translateY(var(--lift, 0)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .gallery-slide:hover,
+        .gallery-slide:focus-visible {
+            --lift: -6px;
         }
 
         .gallery-slide img {
@@ -777,6 +865,9 @@
             text-align: center;
             transition: transform 0.28s ease, box-shadow 0.28s ease;
             position: relative;
+            transform: translateY(var(--lift, 0)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .contact-card::before {
@@ -791,7 +882,7 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
+            --lift: -8px;
             box-shadow: 0 24px 44px rgba(15, 31, 45, 0.17);
         }
 
@@ -1025,6 +1116,13 @@
             .gallery-track {
                 animation: none;
                 transform: none;
+            }
+
+            .schedule-day,
+            .coach,
+            .gallery-slide,
+            .contact-card {
+                transform: none !important;
             }
         }
 

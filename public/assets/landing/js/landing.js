@@ -1,5 +1,7 @@
 (() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(pointer: fine)').matches;
+    const root = document.documentElement;
 
     const header = document.querySelector('.site-header');
     const backToTopButton = document.querySelector('.back-to-top');
@@ -10,11 +12,16 @@
 
         header.classList.toggle('is-scrolled', window.scrollY > 16);
 
+        const scrollRoot = document.documentElement;
+        const scrollTop = window.scrollY || scrollRoot.scrollTop;
+        const scrollRange = Math.max(scrollRoot.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(100, Math.max(0, (scrollTop / scrollRange) * 100));
+        root.style.setProperty('--scroll-progress', progress.toFixed(2));
+
         if (!backToTopButton) {
             return;
         }
 
-        const scrollRoot = document.documentElement;
         const nearBottomThreshold = 220;
         const nearBottom = window.innerHeight + window.scrollY >= scrollRoot.scrollHeight - nearBottomThreshold;
         backToTopButton.classList.toggle('is-visible', nearBottom);
@@ -24,6 +31,52 @@
         passive: true
     });
     handleHeaderState();
+
+    const navAnchors = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const navTargets = navAnchors
+        .map((anchor) => {
+            const id = anchor.getAttribute('href');
+            if (!id || id === '#') {
+                return null;
+            }
+
+            const target = document.querySelector(id);
+            if (!target) {
+                return null;
+            }
+
+            return {
+                anchor,
+                target
+            };
+        })
+        .filter(Boolean);
+
+    const syncCurrentNav = () => {
+        if (navTargets.length === 0) {
+            return;
+        }
+
+        const headerOffset = header ? header.offsetHeight + 24 : 96;
+        const current = navTargets
+            .slice()
+            .reverse()
+            .find((item) => window.scrollY + headerOffset >= item.target.offsetTop);
+
+        navAnchors.forEach((anchor) => anchor.classList.remove('is-current'));
+
+        if (current) {
+            current.anchor.classList.add('is-current');
+        } else {
+            navTargets[0].anchor.classList.add('is-current');
+        }
+    };
+
+    window.addEventListener('scroll', syncCurrentNav, {
+        passive: true
+    });
+    window.addEventListener('resize', syncCurrentNav);
+    syncCurrentNav();
 
     if (backToTopButton) {
         backToTopButton.addEventListener('click', () => {
@@ -146,6 +199,28 @@
                 }
             });
         }
+    }
+
+    if (!reduceMotion && finePointer) {
+        const tiltCards = document.querySelectorAll('.schedule-day, .coach, .contact-card, .gallery-slide');
+
+        tiltCards.forEach((card) => {
+            card.addEventListener('mousemove', (event) => {
+                const rect = card.getBoundingClientRect();
+                const px = (event.clientX - rect.left) / rect.width;
+                const py = (event.clientY - rect.top) / rect.height;
+                const rotateY = (px - 0.5) * 8;
+                const rotateX = (0.5 - py) * 8;
+
+                card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+                card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.removeProperty('--tilt-x');
+                card.style.removeProperty('--tilt-y');
+            });
+        });
     }
 
     const gallerySection = document.querySelector('.yoga-gallery');
