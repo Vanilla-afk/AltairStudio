@@ -18,10 +18,7 @@
 <body>
     <header class="site-header">
         <div class="container nav-wrap">
-            <a class="brand" href="#home" aria-label="{{ $brandName ?? 'Altair Studio' }} home">
-                <span class="brand-mark" aria-hidden="true">
-                    <img src="{{ asset('images/LogoAltair.png') }}" alt="">
-                </span>
+            <a class="brand nav-brand" href="#home" aria-label="{{ $brandName ?? 'Altair Studio' }} home">
                 <span>{{ $brandName ?? 'Altair Studio' }}</span>
             </a>
 
@@ -37,6 +34,12 @@
 
     <main>
         <section class="hero" id="home">
+            <a class="brand hero-brand" href="#home" aria-label="{{ $brandName ?? 'Altair Studio' }} home">
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="{{ asset('images/LogoAltair.png') }}" alt="">
+                </span>
+            </a>
+
             <div class="hero-orb a" aria-hidden="true"></div>
             <div class="hero-orb b" aria-hidden="true"></div>
             <div class="container hero-content">
