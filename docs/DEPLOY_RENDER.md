@@ -39,6 +39,10 @@ Optional production values (recommended):
 - `MAIL_FROM_NAME`
 - `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_BUCKET` (if using S3)
 
+Session note:
+
+- Blueprint uses `SESSION_DRIVER=file` for Render Free to avoid requiring a `sessions` DB table.
+
 ## 4) First Deploy Behavior
 
 Render builds your Docker image from `Dockerfile`.

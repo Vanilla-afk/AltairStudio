@@ -45,7 +45,7 @@ services:
           name: altairstudio-db
           property: password
       - key: SESSION_DRIVER
-        value: database
+        value: file
       - key: CACHE_STORE
         value: database
       - key: QUEUE_CONNECTION
