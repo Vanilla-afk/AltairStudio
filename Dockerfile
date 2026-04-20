@@ -21,7 +21,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
-RUN npm ci && npm run build
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm run build
 RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
 
 RUN chown -R www-data:www-data storage bootstrap/cache
