@@ -22,6 +22,7 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm run build
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache
 RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
 
 RUN chown -R www-data:www-data storage bootstrap/cache
