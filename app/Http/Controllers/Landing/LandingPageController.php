@@ -120,6 +120,18 @@ class LandingPageController extends Controller
                     'bio' => 'Seraphina specializes in mindful classes designed for deep release and relaxation.',
                     'tags' => ['Yin Yoga', 'Restorative', 'Mindfulness'],
                 ],
+                [
+                    'name' => 'Arvin Pogi',
+                    'role' => 'Aerial Foundation Coach',
+                    'bio' => 'Noah focuses on safe aerial fundamentals, helping new students build confidence and control.',
+                    'tags' => ['Aerial Basics', 'Core Strength', 'Mobility'],
+                ],
+                [
+                    'name' => 'Arvin Pogi',
+                    'role' => 'Reformer Pilates Specialist',
+                    'bio' => 'Luna leads precision-based pilates sessions designed to improve posture, stability, and endurance.',
+                    'tags' => ['Reformer', 'Posture', 'Conditioning'],
+                ],
             ],
             'contactCards' => [
                 [
