@@ -24,6 +24,10 @@ This blueprint provisions:
 
 `APP_KEY` is generated automatically by the blueprint.
 
+If you see `Unsupported cipher or incorrect key length`, your service has an invalid `APP_KEY` value. Set a valid key in Render Environment, for example:
+
+- `base64:...` output from `php artisan key:generate --show`
+
 After first deploy, set these manually in the web service Environment tab:
 
 - `APP_URL`: your Render URL first, then your custom domain once connected
@@ -54,6 +58,7 @@ Container startup runs:
 
 Note: Free tier does not support Blueprint `preDeployCommand`, so migrations run on startup.
 Note: Laravel cache compilation is intentionally not run during image build to avoid baking stale environment values.
+Note: `docker-start.sh` validates `APP_KEY` and auto-generates a runtime key only if the configured value is missing/invalid.
 
 ## 5) Important Free Plan Limits
 
