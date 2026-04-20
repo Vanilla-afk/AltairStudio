@@ -22,6 +22,10 @@
                 <span>{{ $brandName ?? 'Altair Studio' }}</span>
             </a>
 
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+
             <nav class="nav-links" aria-label="Main menu">
                 @foreach ($navLinks ?? [] as $navLink)
                     <a href="{{ $navLink['href'] }}">{{ $navLink['label'] }}</a>

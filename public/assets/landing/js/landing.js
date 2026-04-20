@@ -237,4 +237,36 @@
             slide.addEventListener('blur', resumeGallery);
         });
     }
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('mobile-open');
+        });
+
+        // Close mobile menu when a link is clicked
+        const navAnchorsAll = Array.from(navLinks.querySelectorAll('a'));
+        navAnchorsAll.forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('mobile-open');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('mobile-open')) {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('mobile-open');
+            }
+        });
+    }
 })();
