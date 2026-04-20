@@ -40,20 +40,14 @@ Optional production values (recommended):
 
 ## 4) First Deploy Behavior
 
-The web service build does:
+Render builds your Docker image from `Dockerfile`.
 
-- `composer install --no-dev --optimize-autoloader`
-- `npm ci`
-- `npm run build`
-- Laravel cache warmup commands
-
-Before each deploy, Render runs:
+Container startup runs:
 
 - `php artisan migrate --force`
-
-Then it starts app with:
-
 - `php artisan serve --host=0.0.0.0 --port=$PORT`
+
+Note: Free tier does not support Blueprint `preDeployCommand`, so migrations run on startup.
 
 ## 5) Important Free Plan Limits
 
