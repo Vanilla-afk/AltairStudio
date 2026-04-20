@@ -1,0 +1,70 @@
+services:
+  - type: web
+    name: altairstudio-web
+    runtime: php
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: .
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      npm ci
+      npm run build
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+    preDeployCommand: php artisan migrate --force
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    healthCheckPath: /
+    envVars:
+      - key: APP_NAME
+        value: AltairStudio
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        sync: false
+      - key: APP_KEY
+        generateValue: true
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: info
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: altairstudio-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: altairstudio-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: altairstudio-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: altairstudio-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: altairstudio-db
+          property: password
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: FILESYSTEM_DISK
+        value: local
+
+databases:
+  - name: altairstudio-db
+    databaseName: altairstudio
+    user: altairstudio
+    plan: free
+    region: oregon
