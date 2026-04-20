@@ -53,6 +53,7 @@ Container startup runs:
 - `php artisan serve --host=0.0.0.0 --port=$PORT`
 
 Note: Free tier does not support Blueprint `preDeployCommand`, so migrations run on startup.
+Note: Laravel cache compilation is intentionally not run during image build to avoid baking stale environment values.
 
 ## 5) Important Free Plan Limits
 
