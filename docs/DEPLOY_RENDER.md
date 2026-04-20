@@ -32,6 +32,8 @@ After first deploy, set these manually in the web service Environment tab:
 
 - `APP_URL`: your Render URL first, then your custom domain once connected
 
+Important: Ensure `APP_URL` starts with `https://` (not `http://`) to avoid mixed-content issues where CSS/JS are blocked.
+
 Optional production values (recommended):
 
 - `MAIL_MAILER`
