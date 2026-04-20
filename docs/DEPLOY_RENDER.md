@@ -18,6 +18,7 @@ This blueprint provisions:
 
 - 1 web service: `altairstudio-web` (Free plan)
 - 1 Postgres database: `altairstudio-db` (Free plan)
+- Health check path: `/up` (Laravel built-in health endpoint)
 
 ## 3) Set Required Environment Values
 
