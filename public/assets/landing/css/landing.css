@@ -246,6 +246,10 @@
             transform: scaleX(1);
         }
 
+        .mobile-book-link {
+            display: none;
+        }
+
         .book-btn {
             background: linear-gradient(130deg, #1ab7aa, #16a085);
             color: #fff;
@@ -1380,9 +1384,14 @@
                 padding-left: calc(20px - 3px);
             }
 
+            .mobile-book-link {
+                display: block;
+                font-weight: 700;
+                color: #7fe8dd;
+            }
+
             .book-btn {
-                padding: 10px 16px;
-                order: 3;
+                display: none;
             }
 
             .hero {
@@ -1513,88 +1522,83 @@
                 width: 56px;
                 height: 56px;
             }
-        }
 
-        .nav-wrap {
-            min-height: 70px;
-            gap: 14px;
-        }
+            .nav-wrap {
+                min-height: 70px;
+                gap: 14px;
+            }
 
-        main {
-            padding-top: 70px;
-        }
+            main {
+                padding-top: 70px;
+            }
 
-        .brand {
-            font-size: 1.2rem;
-            gap: 8px;
-        }
+            .brand {
+                font-size: 1.2rem;
+                gap: 8px;
+            }
 
-        .brand-mark {
-            width: 34px;
-            height: 34px;
-        }
+            .brand-mark {
+                width: 34px;
+                height: 34px;
+            }
 
-        .book-btn {
-            padding: 9px 12px;
-            font-size: 0.86rem;
-        }
+            .mobile-menu-toggle {
+                width: 40px;
+                height: 40px;
+                padding: 6px;
+            }
 
-        .hero h1 {
-            font-size: clamp(1.85rem, 10vw, 2.55rem);
-        }
+            .hero {
+                padding: 62px 0 46px;
+            }
 
-        .hero p {
-            font-size: 0.97rem;
-            line-height: 1.5;
-        }
+            .hero h1 {
+                font-size: clamp(2rem, 10vw, 2.9rem);
+            }
 
-        .btn {
-            padding: 11px 14px;
-            font-size: 0.94rem;
-        }
+            .hero p {
+                font-size: 0.98rem;
+            }
 
-        .slot-row {
-            grid-template-columns: 74px minmax(0, 1fr);
-            gap: 10px;
-        }
+            .slot-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
 
-        .slot-time,
-        .slot-class {
-            font-size: 0.92rem;
-        }
+            .slot-time {
+                font-size: 0.82rem;
+            }
 
-        .coach-photo {
-            height: 320px;
-        }
+            .gallery-carousel {
+                padding: 10px;
+            }
 
-        .gallery-slide {
-            width: 72vw;
-            max-width: 220px;
-            height: 260px;
-        }
+            .gallery-track {
+                gap: 10px;
+            }
 
-        .contacts-grid {
-            gap: 16px;
-        }
+            .gallery-slide {
+                width: 78vw;
+                max-width: 210px;
+                height: 240px;
+            }
 
-        .icon-pill {
-            width: 44px;
-            height: 44px;
-            font-size: 1.15rem;
-            margin-bottom: 14px;
-        }
+            .coach-photo {
+                height: 300px;
+            }
 
-        .site-footer {
-            font-size: 0.88rem;
-        }
+            .address {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
 
-        .back-to-top {
-            right: 14px;
-            bottom: 16px;
-            width: 46px;
-            height: 46px;
-            font-size: 1.3rem;
-        }
+            .back-to-top {
+                width: 42px;
+                height: 42px;
+                right: 12px;
+                bottom: 14px;
+                font-size: 1.18rem;
+            }
         }
 
         @media (max-width: 420px) {

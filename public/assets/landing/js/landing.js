@@ -243,9 +243,14 @@
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileMenuToggle && navLinks) {
+        const closeMobileMenu = () => {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('mobile-open');
+        };
+
         mobileMenuToggle.addEventListener('click', () => {
             const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
             navLinks.classList.toggle('mobile-open');
         });
 
@@ -253,8 +258,7 @@
         const navAnchorsAll = Array.from(navLinks.querySelectorAll('a'));
         navAnchorsAll.forEach((link) => {
             link.addEventListener('click', () => {
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('mobile-open');
+                closeMobileMenu();
             });
         });
 
@@ -264,8 +268,13 @@
             const isClickOnToggle = mobileMenuToggle.contains(event.target);
 
             if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('mobile-open')) {
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('mobile-open');
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 760) {
+                closeMobileMenu();
             }
         });
     }

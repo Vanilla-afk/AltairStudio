@@ -23,13 +23,14 @@
             </a>
 
             <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                <span class="hamburger"></span>
+                <span class="hamburger"><span></span></span>
             </button>
 
             <nav class="nav-links" aria-label="Main menu">
                 @foreach ($navLinks ?? [] as $navLink)
                     <a href="{{ $navLink['href'] }}">{{ $navLink['label'] }}</a>
                 @endforeach
+                <a class="mobile-book-link" href="#contact">{{ $bookTrialCta ?? 'Book Trial' }}</a>
             </nav>
 
             <a class="book-btn" href="#contact">{{ $bookTrialCta ?? 'Book Trial' }}</a>
