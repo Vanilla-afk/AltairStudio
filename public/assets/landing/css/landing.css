@@ -277,7 +277,7 @@
             border: none;
             cursor: pointer;
             padding: 8px;
-            margin-right: auto;
+            margin-right: 0;
             z-index: 51;
         }
 
@@ -1337,6 +1337,7 @@
 
             .mobile-menu-toggle {
                 display: flex;
+                margin-left: auto;
             }
 
             .nav-links {
