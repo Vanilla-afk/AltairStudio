@@ -129,11 +129,11 @@
                 <div class="gallery-carousel reveal" data-delay="0.12" aria-label="Yoga class photo carousel">
                     @php
                         $galleryPlaceholders = [
-                            ['id' => '01', 'src' => asset('images/pic1.WebP')],
-                            ['id' => '02', 'src' => asset('images/pic2.WebP')],
-                            ['id' => '03', 'src' => asset('images/pic3.WebP')],
-                            ['id' => '04', 'src' => asset('images/pic4.WebP')],
-                            ['id' => '05', 'src' => asset('images/pic5.WebP')],
+                            ['id' => '01', 'src' => asset('images/optimized/pic1.webp')],
+                            ['id' => '02', 'src' => asset('images/optimized/pic2.webp')],
+                            ['id' => '03', 'src' => asset('images/optimized/pic3.webp')],
+                            ['id' => '04', 'src' => asset('images/optimized/pic4.webp')],
+                            ['id' => '05', 'src' => asset('images/optimized/pic5.webp')],
                         ];
                         $gallerySlides = array_merge($galleryPlaceholders, $galleryPlaceholders);
                     @endphp
