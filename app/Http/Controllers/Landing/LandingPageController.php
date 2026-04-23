@@ -103,31 +103,31 @@ class LandingPageController extends Controller
             ],
             'instructors' => [
                 [
-                    'name' => 'Arvin Pogi',
+                    'name' => 'Coach Bern',
                     'role' => 'Studio Director & Lead Instructor',
                     'bio' => 'With over 15 years of experience, Elara specializes in Vinyasa and Power yoga.',
                     'tags' => ['Vinyasa Flow', 'Power Yoga', 'Pranayama'],
                 ],
                 [
-                    'name' => 'Arvin Pogi',
+                    'name' => 'Coach Gwen',
                     'role' => 'Senior Hatha Instructor',
                     'bio' => 'Kai brings a calm, grounded approach with a focus on alignment and accessibility.',
                     'tags' => ['Hatha Yoga', 'Yoga for Athletes', 'Alignment'],
                 ],
                 [
-                    'name' => 'Arvin Pogi',
+                    'name' => 'Coach McGrath',
                     'role' => 'Meditation & Yin Expert',
                     'bio' => 'Seraphina specializes in mindful classes designed for deep release and relaxation.',
                     'tags' => ['Yin Yoga', 'Restorative', 'Mindfulness'],
                 ],
                 [
-                    'name' => 'Arvin Pogi',
+                    'name' => 'Coach Vina',
                     'role' => 'Aerial Foundation Coach',
                     'bio' => 'Noah focuses on safe aerial fundamentals, helping new students build confidence and control.',
                     'tags' => ['Aerial Basics', 'Core Strength', 'Mobility'],
                 ],
                 [
-                    'name' => 'Arvin Pogi',
+                    'name' => 'Pilates Teacher Myka',
                     'role' => 'Reformer Pilates Specialist',
                     'bio' => 'Luna leads precision-based pilates sessions designed to improve posture, stability, and endurance.',
                     'tags' => ['Reformer', 'Posture', 'Conditioning'],
